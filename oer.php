@@ -123,7 +123,7 @@ if(!class_exists('OER_Plugin')) {
     		            $template = OER_PLUGIN_PATH . '/template/rss.php';
     		        }else{
     		            $template = OER_PLUGIN_PATH . '/template/detail.php';
-    		        }
+                    }
     		        // force status to 200 - OK
     		        status_header(200);
 

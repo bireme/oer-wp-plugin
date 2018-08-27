@@ -76,14 +76,14 @@ if ($response){
                         </h1>
                     </header>
                     <ul id="ajax">
-                        
+
                     </ul>
                 </section>
-                
+
 
 <?php
-    $url = plugins_url('oer-wp-plugin');
-    $url.='/template/similar.php?query='.$similar_query.'&lang='.$lang;
+    $url = OER_PLUGIN_URL;
+    $url.='template/similar.php?query='.$similar_query.'&lang='.$lang;
 ?>
 <script type="text/javascript">
     show_similar("<?php echo $url; ?>");

@@ -305,7 +305,7 @@ $pages->paginate($page_url_params);
                             <?php if ( $content == 'Technical resource type' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'technical_resource_type', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'tec_resource_type', 'filter'); ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $tec_resource_type_list as $item ) { ?>

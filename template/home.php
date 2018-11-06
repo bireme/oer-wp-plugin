@@ -58,6 +58,14 @@ if ($response){
     $descriptor_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->descriptor_filter;
     $type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->type;
     $language_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->language;
+    $course_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->course_type;
+    $tec_resource_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->tec_resource_type;
+    $format_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->format;
+    $learning_resource_type_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->learning_resource_type;
+    $learning_context_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->learning_context;
+    $aggregation_level_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->aggregation_level;
+    $audience_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->audience;
+    $license_list = $response_json->diaServerResponse[0]->facet_counts->facet_fields->license;
 
     if ($count_filter > 0){
         $descriptor_list = array_slice($descriptor_list, 0, $count_filter);
@@ -165,7 +173,7 @@ $pages->paginate($page_url_params);
                                                 <li>
                                                     <span class="filter-item">
                                                         <?php
-                                                            if ($filter != 'descriptor' && $filter != 'publication_year'){
+                                                            if ($filter != 'descriptor' && $filter != 'publication_year' && $filter != 'aggregation_level'){
                                                                 echo print_lang_value($value, $site_language);
                                                             }else{
                                                                 echo $value;
@@ -267,6 +275,215 @@ $pages->paginate($page_url_params);
                                     </ul>
                                 </section>
                             <?php endif; ?>
+
+                            <?php if ( $content == 'Course type' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'course_type', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $course_type_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=course_type:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Technical resource type' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'technical_resource_type', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $tec_resource_type_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=tec_resource_type:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Format' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'format', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $format_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=format:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Learning resource type' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'learning_resource_type', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $learning_resource_type_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=learning_resource_type:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Learning context' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'learning_context', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $learning_context_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=learning_context:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Aggregation level' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'aggregation_level', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $aggregation_level_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=aggregation_level:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php echo $item[0]; ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'Audience' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'audience', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $audience_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=audience:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
+                            <?php if ( $content == 'License' ): ?>
+                                <section class="row-fluid widget_categories">
+                                    <header class="row-fluid border-bottom marginbottom15">
+                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'license', 'filter'); ?></h1>
+                                    </header>
+                                    <ul>
+                                        <?php foreach ( $license_list as $item ) { ?>
+                                            <li class="cat-item">
+                                                <?php
+                                                    $filter_link = '?';
+                                                    if ($query != ''){
+                                                        $filter_link .= 'q=' . $query . '&';
+                                                    }
+                                                    $filter_link .= 'filter=license:"' . $item[0] . '"';
+                                                    if ($user_filter != ''){
+                                                        $filter_link .= ' AND ' . $user_filter ;
+                                                    }
+                                                ?>
+                                                <a href='<?php echo $filter_link; ?>'><?php print_lang_value($item[0], $site_language); ?></a>
+                                                <span class="cat-item-count"><?php echo $item[1]; ?></span>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </section>
+                            <?php endif; ?>
+
                         <?php } ?>
                     <?php endif; ?>
 

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the OER package.
 msgid ""
 msgstr ""
-"Project-Id-Version: OER 0.1\n"
+"Project-Id-Version: OER 0.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oer\n"
-"POT-Creation-Date: 2018-07-31 15:56:07+00:00\n"
+"POT-Creation-Date: 2018-11-05 19:58:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,141 +58,144 @@ msgstr ""
 msgid "Page title"
 msgstr ""
 
-#: settings.php:64
-msgid "Display filters"
-msgstr ""
-
-#: settings.php:70
-msgid "Subject"
-msgstr ""
-
-#: settings.php:75
-msgid "Type"
+#: settings.php:62
+msgid "Search filters"
 msgstr ""
 
 #: settings.php:80
-msgid "Language"
-msgstr ""
-
-#: settings.php:88
-msgid "Records per page"
-msgstr ""
-
-#: settings.php:93
-msgid "Items per filter"
-msgstr ""
-
-#: settings.php:100
-msgid "Save changes"
-msgstr ""
-
-#: settings.php:81
 msgid "Available"
-msgstr ""
-
-#: settings.php:100
-msgid "Selected"
 msgstr ""
 
 #: settings.php:84
 msgid "Descriptor"
 msgstr ""
 
-
-#: template/detail.php:41 template/home.php:81
-msgid "Home"
+#: settings.php:87
+msgid "Type"
 msgstr ""
 
-#: template/detail.php:43 template/metadata.php:109
-msgid "Resource"
+#: settings.php:90
+msgid "Language"
 msgstr ""
 
-template/metadata.php:24
-msgid "Objectives"
-msgstr ""
-
-#: template/detail.php:55
-msgid "Share"
-msgstr ""
-
-#: template/detail.php:83
-msgid "Related articles"
-msgstr ""
-
-#: template/home.php:86
-msgid "Search result"
-msgstr ""
-
-#: template/home.php:97
-msgid "Enter one or more words"
-msgstr ""
-
-#: template/home.php:98
-msgid "Search"
-msgstr ""
-
-#: template/home.php:108
-msgid "No results found"
-msgstr ""
-
-#: template/home.php:111
-msgid "Total"
-msgstr ""
-
-#: template/home.php:139
-msgid "Filters"
-msgstr ""
-
-#: template/home.php:149
-msgid "Selected filters"
-msgstr ""
-
-#: template/metadata.php:30
-msgid "Description"
-msgstr ""
-
-#: template/metadata.php:36
+#: settings.php:93 template/metadata.php:53
 msgid "Course type"
 msgstr ""
 
-#: template/metadata.php:42
-msgid "Structure"
-msgstr ""
-
-#: template/metadata.php:48
+#: settings.php:96 template/metadata.php:65
 msgid "Technical resource type"
 msgstr ""
 
-#: template/metadata.php:54
+#: settings.php:99 template/metadata.php:71
 msgid "Format"
 msgstr ""
 
-#: template/metadata.php:60
+#: settings.php:102 template/metadata.php:77
+msgid "Learning resource type"
+msgstr ""
+
+#: settings.php:105 template/metadata.php:89
 msgid "Learning context"
 msgstr ""
 
-#: template/metadata.php:66
-msgid "Audience"
+#: settings.php:108 template/metadata.php:83
+msgid "Aggregation level"
 msgstr ""
 
-#: template/metadata.php:72
-msgid "License"
+#: settings.php:118
+msgid "Selected"
 msgstr ""
 
-#: template/metadata.php:112
-msgid "link"
+#: settings.php:137
+msgid "Records per page"
 msgstr ""
 
-template/metadata.php:49
+#: settings.php:142
+msgid "Items per filter"
+msgstr ""
+
+#: settings.php:149
+msgid "Save changes"
+msgstr ""
+
+#: template/detail.php:33 template/home.php:87
+msgid "Home"
+msgstr ""
+
+#: template/detail.php:35 template/metadata.php:203
+msgid "Resource"
+msgstr ""
+
+#: template/detail.php:46
+msgid "Share"
+msgstr ""
+
+#: template/detail.php:73
+msgid "Related articles"
+msgstr ""
+
+#: template/home.php:92
+msgid "Search result"
+msgstr ""
+
+#: template/home.php:103
+msgid "Enter one or more words"
+msgstr ""
+
+#: template/home.php:104
+msgid "Search"
+msgstr ""
+
+#: template/home.php:114
+msgid "No results found"
+msgstr ""
+
+#: template/home.php:117
+msgid "Total"
+msgstr ""
+
+#: template/home.php:145
+msgid "Filters"
+msgstr ""
+
+#: template/home.php:155
+msgid "Selected filters"
+msgstr ""
+
+#: template/metadata.php:24
+msgid "Objectives"
+msgstr ""
+
+#: template/metadata.php:37
+msgid "Description"
+msgstr ""
+
+#: template/metadata.php:49
 msgid "Details"
 msgstr ""
 
-template/metadata.php:119
+#: template/metadata.php:59
+msgid "Structure"
+msgstr ""
+
+#: template/metadata.php:95
+msgid "Audience"
+msgstr ""
+
+#: template/metadata.php:101
+msgid "License"
+msgstr ""
+
+#: template/metadata.php:108
+msgid "Descriptors"
+msgstr ""
+
+#: template/metadata.php:138 template/metadata.php:165
 msgid "Related"
 msgstr ""
 
-template/metadata.php:96
-msgid "Descriptors"
+#: template/metadata.php:206
+msgid "link"
 msgstr ""
 
 #: template-functions.php:71

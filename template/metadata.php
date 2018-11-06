@@ -72,6 +72,18 @@ $detail_page = (isset($resource_id) ? true: false);
     </div>
 <?php endif; ?>
 
+<?php if ($resource->learning_resource_type && $detail_page) : ?>
+    <div class="row-fluid">
+        <?php _e('Learning resource type','oer'); ?>: <strong><?php echo print_lang_value($resource->learning_resource_type, $lang) ?></strong>
+    </div>
+<?php endif; ?>
+
+<?php if ($resource->aggregation_level && $detail_page) : ?>
+    <div class="row-fluid">
+        <?php _e('Aggregation level','oer'); ?>: <strong><?php echo print_lang_value($resource->aggregation_level, $lang) ?></strong>
+    </div>
+<?php endif; ?>
+
 <?php if ($resource->learning_context && $detail_page) : ?>
     <div class="row-fluid">
         <?php _e('Learning context','oer'); ?>: <strong><?php echo print_lang_value($resource->learning_context, $lang) ?></strong>

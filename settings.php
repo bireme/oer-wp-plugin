@@ -59,11 +59,11 @@ function oer_page_admin() {
 
                         ?>
                         <tr valign="top">
-                            <th scope="row"><?php _e('Sidebar order', 'oer');?>:</th>
+                            <th scope="row"><?php _e('Search filters', 'oer');?>:</th>
 
                             <?php
                               if(!isset($config['available_filter'])){
-                                $config['available_filter'] = 'Descriptor;Type;Language';
+                                $config['available_filter'] = 'Descriptor;Type;Language;Course type;Technical resource type;Format;Learning resource type;Learning context;Aggregation level;Audience;License';
                                 $order = explode(';', $config['available_filter'] );
 
                               }else {
@@ -74,22 +74,46 @@ function oer_page_admin() {
 
                             <td>
 
-
                               <table border=0>
                                 <tr>
                                 <td >
-                                    <p align="right"><?php _e('Available', 'oer');?><br>
+                                    <p align="left"><?php _e('Available', 'oer');?><br>
                                       <ul id="sortable1" class="droptrue">
                                       <?php
                                       if(!in_array('Descriptor', $order) && !in_array('Descriptor ', $order) ){
-                                        echo '<li class="ui-state-default" id="Descriptor">'.translate('Descriptor','oer').'</li>';
+                                        echo '<li class="ui-state-default" id="Descriptor">'.__('Descriptor','oer').'</li>';
                                       }
                                       if(!in_array('Type', $order) && !in_array('Type ', $order) ){
-                                        echo '<li class="ui-state-default" id="Type">'.translate('Type','oer').'</li>';
+                                        echo '<li class="ui-state-default" id="Type">'.__('Type','oer').'</li>';
                                       }
                                       if(!in_array('Language', $order) && !in_array('Language ', $order) ){
-                                        echo '<li class="ui-state-default" id="Language">'.translate('Language','oer').'</li>';
+                                        echo '<li class="ui-state-default" id="Language">'.__('Language','oer').'</li>';
                                       }
+                                      if(!in_array('Course type', $order) && !in_array('Course type ', $order) ){
+                                        echo '<li class="ui-state-default" id="Course type">'.__('Course type','oer').'</li>';
+                                      }
+                                      if(!in_array('Technical resource type', $order) && !in_array('Technical resource type ', $order) ){
+                                        echo '<li class="ui-state-default" id="Technical resource type">'.__('Technical resource type','oer').'</li>';
+                                      }
+                                      if(!in_array('Format', $order) && !in_array('Format ', $order) ){
+                                        echo '<li class="ui-state-default" id="Format">'.__('Format','oer').'</li>';
+                                      }
+                                      if(!in_array('Learning resource type', $order) && !in_array('Learning resource type ', $order) ){
+                                        echo '<li class="ui-state-default" id="Learning resource type">'.__('Learning resource type','oer').'</li>';
+                                      }
+                                      if(!in_array('Learning context', $order) && !in_array('Learning context ', $order) ){
+                                        echo '<li class="ui-state-default" id="Learning context">'.__('Learning context','oer').'</li>';
+                                      }
+                                      if(!in_array('Aggregation level', $order) && !in_array('Aggregation level ', $order) ){
+                                        echo '<li class="ui-state-default" id="Aggregation level">'.__('Aggregation level','oer').'</li>';
+                                      }
+                                      if(!in_array('Audience', $order) && !in_array('Audience ', $order) ){
+                                        echo '<li class="ui-state-default" id="Audience">'.__('Audience','oer').'</li>';
+                                      }
+                                      if(!in_array('License', $order) && !in_array('License ', $order) ){
+                                        echo '<li class="ui-state-default" id="License">'.__('License','oer').'</li>';
+                                      }
+
                                       ?>
                                       </ul>
 
@@ -102,7 +126,7 @@ function oer_page_admin() {
                                       <?php
                                       foreach ($order as $index => $item) {
                                         $item = trim($item); // Important
-                                        echo '<li class="ui-state-default" id="'.$item.'">'.translate($item ,'oer').'</li>';
+                                        echo '<li class="ui-state-default" id="'.$item.'">'.__($item ,'oer').'</li>';
                                       }
                                       ?>
                                       </ul>

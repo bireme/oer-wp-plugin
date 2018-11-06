@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OER 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oer\n"
-"POT-Creation-Date: 2018-07-31 15:56:07+00:00\n"
-"PO-Revision-Date: 2018-09-20 09:31-0300\n"
+"POT-Creation-Date: 2018-11-05 19:58:32+00:00\n"
+"PO-Revision-Date: 2018-11-05 17:59-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -61,139 +61,145 @@ msgstr "Enlace de la página inicial"
 msgid "Page title"
 msgstr "Titulo de la página"
 
-#: settings.php:64
-msgid "Display filters"
-msgstr "Mostrar filtros"
-
-#: settings.php:70
-msgid "Subject"
-msgstr "Asunto"
-
-#: settings.php:75
-msgid "Type"
-msgstr "Tipo"
+#: settings.php:62
+msgid "Search filters"
+msgstr "Filtros seleccionados"
 
 #: settings.php:80
-msgid "Language"
-msgstr "Idioma"
-
-#: settings.php:88
-msgid "Records per page"
-msgstr "Registros por página"
-
-#: settings.php:93
-msgid "Items per filter"
-msgstr "Itens por filtro"
-
-#: settings.php:100
-msgid "Save changes"
-msgstr "Guardar cambios"
-
-#: settings.php:81
 msgid "Available"
 msgstr "Disponible"
 
-#: settings.php:100
-msgid "Selected"
-msgstr "Seleccionados"
-
 #: settings.php:84
-#, fuzzy
-#| msgid "Description"
 msgid "Descriptor"
-msgstr "Descripción"
+msgstr "Descriptor"
 
-#: template/detail.php:41 template/home.php:81
-msgid "Home"
-msgstr "Página inicial"
+#: settings.php:87
+msgid "Type"
+msgstr "Tipo"
 
-#: template/detail.php:43 template/metadata.php:109
-msgid "Resource"
-msgstr "Recurso"
+#: settings.php:90
+msgid "Language"
+msgstr "Idioma"
 
-msgid "Objectives"
-msgstr "Objetivos"
-
-#: template/detail.php:55
-msgid "Share"
-msgstr "Compartir"
-
-#: template/detail.php:83
-msgid "Related articles"
-msgstr "Artículos relacionados"
-
-#: template/home.php:86
-msgid "Search result"
-msgstr "Resultado de la búsqueda"
-
-#: template/home.php:97
-msgid "Enter one or more words"
-msgstr "Ingrese una o más palabras"
-
-#: template/home.php:98
-msgid "Search"
-msgstr "Buscar"
-
-#: template/home.php:108
-msgid "No results found"
-msgstr "No se han encontrado resultados"
-
-#: template/home.php:111
-msgid "Total"
-msgstr "Total"
-
-#: template/home.php:139
-msgid "Filters"
-msgstr "Filtros"
-
-#: template/home.php:149
-msgid "Selected filters"
-msgstr "Filtros seleccionados"
-
-#: template/metadata.php:30
-msgid "Description"
-msgstr "Descripción"
-
-#: template/metadata.php:36
+#: settings.php:93 template/metadata.php:53
 msgid "Course type"
 msgstr "Tipo de curso"
 
-#: template/metadata.php:42
-msgid "Structure"
-msgstr "Estructura"
-
-#: template/metadata.php:48
+#: settings.php:96 template/metadata.php:65
 msgid "Technical resource type"
 msgstr "Tipo de recurso técnico"
 
-#: template/metadata.php:54
+#: settings.php:99 template/metadata.php:71
 msgid "Format"
 msgstr "Formato"
 
-#: template/metadata.php:60
+#: settings.php:102 template/metadata.php:77
+msgid "Learning resource type"
+msgstr "Tipo de recurso de aprendizaje"
+
+#: settings.php:105 template/metadata.php:89
 msgid "Learning context"
 msgstr "Contexto de aprendizaje"
 
-#: template/metadata.php:66
-msgid "Audience"
-msgstr "Audiencia"
+#: settings.php:108 template/metadata.php:83
+msgid "Aggregation level"
+msgstr "Nivel de agregación"
 
-#: template/metadata.php:72
-msgid "License"
-msgstr "Licencia"
+#: settings.php:118
+msgid "Selected"
+msgstr "Seleccionados"
 
-#: template/metadata.php:112
-msgid "link"
-msgstr "enlace"
+#: settings.php:137
+msgid "Records per page"
+msgstr "Registros por página"
 
+#: settings.php:142
+msgid "Items per filter"
+msgstr "Itens por filtro"
+
+#: settings.php:149
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: template/detail.php:33 template/home.php:87
+msgid "Home"
+msgstr "Página inicial"
+
+#: template/detail.php:35 template/metadata.php:203
+msgid "Resource"
+msgstr "Recurso"
+
+#: template/detail.php:46
+msgid "Share"
+msgstr "Compartir"
+
+#: template/detail.php:73
+msgid "Related articles"
+msgstr "Artículos relacionados"
+
+#: template/home.php:92
+msgid "Search result"
+msgstr "Resultado de la búsqueda"
+
+#: template/home.php:103
+msgid "Enter one or more words"
+msgstr "Ingrese una o más palabras"
+
+#: template/home.php:104
+msgid "Search"
+msgstr "Buscar"
+
+#: template/home.php:114
+msgid "No results found"
+msgstr "No se han encontrado resultados"
+
+#: template/home.php:117
+msgid "Total"
+msgstr "Total"
+
+#: template/home.php:145
+msgid "Filters"
+msgstr "Filtros"
+
+#: template/home.php:155
+msgid "Selected filters"
+msgstr "Filtros seleccionados"
+
+#: template/metadata.php:24
+msgid "Objectives"
+msgstr "Objetivos"
+
+#: template/metadata.php:37
+msgid "Description"
+msgstr "Descripción"
+
+#: template/metadata.php:49
 msgid "Details"
 msgstr "Detalles"
 
+#: template/metadata.php:59
+msgid "Structure"
+msgstr "Estructura"
+
+#: template/metadata.php:95
+msgid "Audience"
+msgstr "Audiencia"
+
+#: template/metadata.php:101
+msgid "License"
+msgstr "Licencia"
+
+#: template/metadata.php:108
+msgid "Descriptors"
+msgstr "Descriptors"
+
+#: template/metadata.php:138 template/metadata.php:165
 msgid "Related"
 msgstr "Relacionados"
 
-msgid "Descriptors"
-msgstr "Descriptors"
+#: template/metadata.php:206
+msgid "link"
+msgstr "enlace"
 
 #: template-functions.php:71
 msgid "of"
@@ -218,6 +224,12 @@ msgstr "BIREME/OPAS/OMS"
 #. Author URI of the plugin/theme
 msgid "http://reddes.bvsalud.org/"
 msgstr ""
+
+#~ msgid "Display filters"
+#~ msgstr "Mostrar filtros"
+
+#~ msgid "Subject"
+#~ msgstr "Asunto"
 
 #~ msgid "Resource (primary link)"
 #~ msgstr "Recurso (enlace principal)"

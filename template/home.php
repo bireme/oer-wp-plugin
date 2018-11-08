@@ -2,7 +2,7 @@
 /*
 Template Name: OER Home
 */
-global $oer_service_url, $oer_plugin_slug, $oer_plugin_title, $oer_texts;
+global $oer_service_url, $oer_plugin_slug, $oer_texts;
 
 require_once(OER_PLUGIN_PATH . '/lib/Paginator.php');
 
@@ -80,17 +80,21 @@ $feed_url = real_site_url($oer_plugin_slug) . 'oer-feed?q=' . urlencode($query) 
 
 $pages = new Paginator($total, $start, $count);
 $pages->paginate($page_url_params);
+
+$home_url = isset($oer_config['home_url_' . $lang]) ? $oer_config['home_url_' . $lang] : real_site_url();
+$plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['plugin_title_' . $lang] : $oer_config['plugin_title'];
+
 ?>
 
 <?php get_header('oer');?>
 
 		<div class="ajusta2">
             <div class="row-fluid breadcrumb">
-                <a href="<?php echo real_site_url() ?>"><?php _e('Home','oer'); ?></a> >
-                <?php if ($query == '' && $filter == ''): ?>
-                    <?php echo $oer_plugin_title ?>
+                <a href="<?php echo $home_url ?>"><?php _e('Home','oer'); ?></a> >
+                <?php if ($query == '' && $user_filter == ''): ?>
+                    <?php echo $plugin_breadcrumb ?>
                 <?php else: ?>
-                    <a href="<?php echo real_site_url($oer_plugin_slug); ?>"><?php echo $oer_plugin_title ?> </a> >
+                    <a href="<?php echo real_site_url($oer_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
                     <?php _e('Search result', 'oer') ?>
                 <?php endif; ?>
             </div>

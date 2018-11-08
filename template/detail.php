@@ -3,7 +3,7 @@
 Template Name: OER Detail
 */
 
-global $oer_service_url, $oer_plugin_slug, $oer_plugin_title, $oer_texts, $similar_docs_url;
+global $oer_service_url, $oer_plugin_slug, $oer_texts, $similar_docs_url;
 
 $oer_config = get_option('oer_config');
 $resource_id   = $_GET['id'];
@@ -23,6 +23,9 @@ if ($response){
     $similar_query = urlencode($similar_docs_url);
 }
 
+$home_url = isset($oer_config['home_url_' . $lang]) ? $oer_config['home_url_' . $lang] : real_site_url();
+$plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['plugin_title_' . $lang] : $oer_config['plugin_title'];
+
 ?>
 
 <?php get_header('oer'); ?>
@@ -30,18 +33,17 @@ if ($response){
 <div id="content" class="row-fluid">
         <div class="ajusta2">
             <div class="row-fluid breadcrumb">
-                <a href="<?php echo real_site_url() ?>"><?php _e('Home','oer'); ?></a> >
-                <a href="<?php echo real_site_url($oer_plugin_slug); ?>"><?php echo $oer_plugin_title ?> </a> >
-                <?php _e('Resource','oer'); ?>
+                <a href="<?php echo $home_url ?>"><?php _e('Home','oer'); ?></a> >
+                <a href="<?php echo real_site_url($oer_plugin_slug); ?>"><?php echo $plugin_breadcrumb ?> </a> >
+                <?php echo wp_trim_words($resource->title, 60, '...') ?>
             </div>
 
             <section id="conteudo">
-                <header class="row-fluid border-bottom">
-                    <h1 class="h1-header"><?php echo $resource->title; ?></h1>
-                </header>
                 <div class="row-fluid">
                     <article class="conteudo-loop">
+
                         <?php include('metadata.php') ?>
+
                         <footer class="row-fluid margintop05">
                             <i class="ico-compartilhar"><?php _e('Share','oer'); ?></i>
                             <ul class="conteudo-loop-icons">

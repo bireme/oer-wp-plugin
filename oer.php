@@ -112,6 +112,15 @@ if(!class_exists('OER_Plugin')) {
                 $oer_plugin_slug = $this->plugin_slug;
                 $similar_docs_url = $this->similar_docs_url;
 
+                /* check for polylang and adjust plugin slug */
+                if ( function_exists( 'pll_the_languages' ) ) {
+                    $current_lang = pll_current_language();
+                    $default_lang = pll_default_language();
+                    if ($current_lang != $default_lang){
+                        $oer_plugin_slug =  $current_lang . '/' . $oer_plugin_slug;
+                    }
+                }
+
                 if ($pagename == $this->plugin_slug || $pagename == $this->plugin_slug . '/resource'
                     || $pagename == $this->plugin_slug . '/oer-feed') {
 

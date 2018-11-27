@@ -19,7 +19,8 @@ $response = @file_get_contents($oer_service_request);
 if ($response){
     $response_json = json_decode($response);
     $resource = $response_json->diaServerResponse[0]->match->docs[0];
-    $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs='.urlencode($resource->learning_objectives[0]);
+    $doc_query =  $resource->title . ' ' . $resource->learning_objectives[0];
+    $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($doc_query);
     $similar_query = urlencode($similar_docs_url);
 }
 

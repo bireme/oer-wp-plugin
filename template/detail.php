@@ -22,15 +22,16 @@ if ($response){
 
     // create param to find similars
     $similar_text = $resource->title;
-    if (isset($resource->mh)){
-        $similar_text .= ' ' . implode(' ', $resource->mh);
+    if (isset($resource->mj)){
+        $similar_text .= ' ' . implode(' ', $resource->mj);
     }
     if (isset($resource->learning_objectives)){
         $similar_text .= ' ' . $resource->learning_objectives[0];
     }
 
     $similar_docs_url = $similar_docs_url . '?adhocSimilarDocs=' . urlencode($similar_text);
-    $similar_query = urlencode($similar_docs_url);
+    $similar_docs_request = ( $oer_config['default_filter_db'] ) ? $similar_docs_url . '&sources=' . $oer_config['default_filter_db'] : $similar_docs_url;
+    $similar_query = urlencode($similar_docs_request);
 }
 
 $home_url = isset($oer_config['home_url_' . $lang]) ? $oer_config['home_url_' . $lang] : real_site_url();
@@ -88,15 +89,13 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                     <ul id="ajax">
 
                     </ul>
-                </section>
-
-
 <?php
-    $url=OER_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
+$url = OER_PLUGIN_URL.'template/similar.php?query='.$similar_query.'&lang='.$lang;
 ?>
 <script type="text/javascript">
     show_similar("<?php echo $url; ?>");
 </script>
+                </section>
             </aside>
         </div>
     </div>

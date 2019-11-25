@@ -119,7 +119,13 @@ function oer_page_admin() {
 
                                     </p>
                                 </td>
-
+                                <tr valign="top">
+                                    <th scope="row"><?php _e('Related Documents filter', 'oer'); ?>:</th>
+                                    <td>
+                                        <input type="text" name="oer_config[default_filter_db]" value='<?php echo $config['default_filter_db']; ?>' class="regular-text code">
+                                        <small style="display: block;">* <?php _e('The filters must be separated by commas.', 'oer'); ?></small>
+                                    </td>
+                                </tr>
                                 <td >
                                     <p align="left"><?php _e('Selected', 'oer');?> <br>
                                       <ul id="sortable2" class="sortable-list">

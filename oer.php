@@ -11,7 +11,7 @@ Author URI: http://reddes.bvsalud.org/
 define('OER_VERSION', '0.3' );
 
 define('OER_SYMBOLIC_LINK', false );
-define('OER_PLUGIN_DIRNAME', 'rea' );
+define('OER_PLUGIN_DIRNAME', 'oer' );
 
 if(OER_SYMBOLIC_LINK == true) {
     define('OER_PLUGIN_PATH',  ABSPATH . 'wp-content/plugins/' . OER_PLUGIN_DIRNAME );
@@ -28,7 +28,7 @@ require_once(OER_PLUGIN_PATH . '/template-functions.php');
 if(!class_exists('OER_Plugin')) {
     class OER_Plugin {
 
-        private $plugin_slug = 'rea';
+        private $plugin_slug = 'oer';
         private $service_url = 'http://fi-admin.bvsalud.org/';
         private $similar_docs_url = 'http://similardocs.bireme.org/SDService';
 

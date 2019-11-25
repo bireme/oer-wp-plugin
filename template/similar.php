@@ -15,7 +15,7 @@
         if( !array_key_exists( 0, $similar_docs['document'] ) ) {
             $similar_docs['document'] = array_values($similar_docs);
         }
-        
+
         foreach ( $similar_docs['document'] as $similar) {
             ?>
             <li class="cat-item">
@@ -42,6 +42,6 @@
             <?php
         }
     } else {
-        echo '<li>' . __('No related documents', 'leisref') . '</li>';
+        echo '<li>' . __('No related documents', 'oer') . '</li>';
     }
 ?>

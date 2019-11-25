@@ -29,7 +29,7 @@ if(!class_exists('OER_Plugin')) {
     class OER_Plugin {
 
         private $plugin_slug = 'oer';
-        private $service_url = 'http://fi-admin.bvsalud.org/';
+        private $service_url = 'http://fi-admin.data.bvsalud.org/';
         private $similar_docs_url = 'http://similardocs.bireme.org/SDService';
 
         /**
@@ -44,9 +44,12 @@ if(!class_exists('OER_Plugin')) {
             add_action( 'wp_head', array(&$this, 'google_analytics_code'));
             add_action( 'template_redirect', array(&$this, 'theme_redirect'));
             add_action( 'widgets_init', array(&$this, 'register_sidebars'));
+            add_action( 'after_setup_theme', array(&$this, 'title_tag_setup'));
             add_filter( 'get_search_form', array(&$this, 'search_form'));
             add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array(&$this, 'settings_link') );
+            add_filter( 'document_title_separator', array(&$this, 'title_tag_sep') );
             add_filter( 'document_title_parts', array(&$this, 'theme_slug_render_title'));
+            add_filter( 'wp_title', array(&$this, 'theme_slug_render_wp_title'));
 
         } // END public function __construct
 
@@ -156,6 +159,9 @@ if(!class_exists('OER_Plugin')) {
 		    register_sidebar( $args );
 		}
 
+        function title_tag_sep(){
+            return '|';
+        }
 
         function theme_slug_render_title($title) {
             global $wp, $oer_plugin_title;
@@ -179,6 +185,39 @@ if(!class_exists('OER_Plugin')) {
             }
 
             return $title;
+        }
+
+        function theme_slug_render_wp_title($title) {
+            global $wp, $oer_plugin_title;
+            $pagename = '';
+
+            // check if request contains plugin slug string
+            $pos_slug = strpos($wp->request, $this->plugin_slug);
+            if ( $pos_slug !== false ){
+                $pagename = substr($wp->request, $pos_slug);
+            }
+
+            if ( is_404() && $pos_slug !== false ){
+                $oer_config = get_option('oer_config');
+
+                if ( function_exists( 'pll_the_languages' ) ) {
+                    $current_lang = pll_current_language();
+                    $oer_plugin_title = $oer_config['plugin_title_' . $current_lang];
+                }else{
+                    $oer_plugin_title = $oer_config['plugin_title'];
+                }
+                
+                if ( $oer_plugin_title )
+                    $title = $oer_plugin_title . ' | ';
+                else
+                    $title = '';
+            }
+
+            return $title;
+        }
+
+        function title_tag_setup() {
+            add_theme_support( 'title-tag' );
         }
 
 		function page_title(){

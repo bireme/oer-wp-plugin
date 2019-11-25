@@ -81,9 +81,8 @@ function oer_page_admin() {
                                 $order = explode(';', $config['available_filter'] );
 
                               }else {
-                                $order = explode(';', $config['available_filter'] );
-                            }
-
+                                $order = array_filter(explode(';', $config['available_filter']));
+                              }
                             ?>
 
                             <td>

@@ -157,22 +157,37 @@ if ( !function_exists('display_thumbnail') ) {
     function display_thumbnail($link){
         $service = '';
         $link_data = parse_url($link);
-        if (strpos($link_data['host'],'youtube.com') !== false){
+        $ext = pathinfo($link, PATHINFO_EXTENSION);
+        $img_ext = array('jpg', 'jpeg', 'png', 'gif');
+
+        if (strpos($link_data['host'],'youtube.com') !== false) {
             $service = 'youtube';
             parse_str($link_data['query'], $params);
             $video_id = $params['v'];
-        }elseif (strpos($link_data['host'],'vimeo.com') !== false) {
+        } elseif (strpos($link_data['host'],'vimeo.com') !== false) {
             $service = 'vimeo';
             $video_id = $link_data['path'];
-        }elseif (strpos($link_data['host'],'flickr.com') !== false) {
+        } elseif (strpos($link_data['host'],'flickr.com') !== false) {
             $service = 'flicker';
+        } elseif (strpos($link_data['host'],'slideshare.net') !== false) {
+            $service = 'slideshare';
         }
-        if ($service == 'youtube'){
-            echo '<iframe width="474" height="356" src="http://www.youtube.com/embed/' . $video_id . '" frameborder="0" allowfullscreen></iframe>';
-        }elseif ($service == 'vimeo'){
-            echo '<iframe src="//player.vimeo.com/video' . $video_id . '" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-        }elseif ($service == 'flicker'){
+
+        if ($service == 'youtube') {
+            echo '<iframe width="474" height="356" src="//www.youtube.com/embed/' . $video_id . '" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+        } elseif ($service == 'vimeo') {
+            echo '<iframe src="//player.vimeo.com/video' . $video_id . '" width="500" height="281" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+        } elseif ($service == 'flicker') {
             echo '<iframe src="' . $link . '/player/" width="320" height="211" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+        } elseif ($service == 'slideshare') {
+            $embed_service_url = 'https://www.slideshare.net/api/oembed/2?url=' . $link . '&format=json';
+            $embed_service_response = file_get_contents($embed_service_url);
+            $embed_service_data = json_decode($embed_service_response, true);
+            echo $embed_service_data['html'];
+        } elseif ( 'pdf' == $ext ) {
+            echo '<iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=' . $link . '" width="500" height="400" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>';
+        } elseif ( in_array(strtolower($ext), $img_ext) ) {
+            echo '<img src="' . $link . '" alt="thumbnail" style="max-width: 500px; max-height: 400px;"></img>';
         }
     }
 }

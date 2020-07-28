@@ -29,7 +29,7 @@ if(!class_exists('OER_Plugin')) {
     class OER_Plugin {
 
         private $plugin_slug = 'oer';
-        private $service_url = 'http://fi-admin.data.bvsalud.org/';
+        private $service_url = 'http://fi-admin-api.bvsalud.org/';
         private $similar_docs_url = 'http://similardocs.bireme.org/SDService';
 
         /**

@@ -167,13 +167,14 @@ function oer_page_admin() {
             </form>
         </div>
         <script type="text/javascript">
+            var $j = jQuery.noConflict();
+
             $j( function() {
               $j( "ul.droptrue" ).sortable({
                 connectWith: "ul"
               });
 
               $j('.sortable-list').sortable({
-
                 connectWith: 'ul',
                 update: function(event, ui) {
                   var changedList = this.id;
@@ -183,7 +184,7 @@ function oer_page_admin() {
 
                 }
               });
-            } );
+            });
         </script>
 <?php
 }

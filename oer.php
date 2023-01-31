@@ -70,23 +70,31 @@ if(!class_exists('OER_Plugin')) {
         } // END public static function deactivate
 
         function load_translation(){
-            global $oer_texts;
-
 		    // load internal plugin translations
 		    load_plugin_textdomain('oer', false,  OER_PLUGIN_DIR . '/languages');
-            // load plugin translations
-            $site_language = strtolower(get_bloginfo('language'));
-            $lang = substr($site_language,0,2);
-
-            $oer_texts = @parse_ini_file(OER_PLUGIN_PATH . "/languages/texts_" . $lang . ".ini", true);
 		}
 
 		function plugin_init() {
+            global $oer_texts;
+
 		    $oer_config = get_option('oer_config');
+            $oer_config['use_translation'] = true;
 
 		    if ( $oer_config && $oer_config['plugin_slug'] != ''){
 		        $this->plugin_slug = $oer_config['plugin_slug'];
 		    }
+            if ($oer_config['use_translation']){
+                $site_language = strtolower(get_bloginfo('language'));
+                $lang = substr($site_language,0,2);
+
+                $oer_texts = @parse_ini_file(OER_PLUGIN_PATH . "/languages/texts_".$lang.".ini", true);
+                if ( !$oer_texts ) {
+                    $oer_texts = @parse_ini_file(OER_PLUGIN_PATH . "/languages/texts_".$lang."-SAMPLE.ini", true);
+                    if ( !$oer_texts ) {
+                        $oer_texts = @parse_ini_file(OER_PLUGIN_PATH . "/languages/texts_en-SAMPLE.ini", true);
+                    }
+                }
+            }
 
 		}
 

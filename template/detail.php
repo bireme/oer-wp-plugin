@@ -6,7 +6,7 @@ Template Name: OER Detail
 global $oer_service_url, $oer_plugin_slug, $oer_texts, $similar_docs_url;
 
 $oer_config = get_option('oer_config');
-$resource_id   = $_GET['id'];
+$resource_id = sanitize_text_field($_GET['id']);
 
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);

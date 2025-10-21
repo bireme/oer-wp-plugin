@@ -4,11 +4,11 @@ Plugin Name: OER
 Plugin URI: https://github.com/bireme/oer-wp-plugin/
 Description: Browse and Search Open Educational Resources of FI-ADMIN
 Author: BIREME/OPAS/OMS
-Version: 0.3
+Version: 1.5
 Author URI: http://reddes.bvsalud.org/
 */
 
-define('OER_VERSION', '0.3' );
+define('OER_VERSION', '1.5' );
 
 define('OER_SYMBOLIC_LINK', false );
 define('OER_PLUGIN_DIRNAME', 'oer' );
@@ -78,9 +78,11 @@ if(!class_exists('OER_Plugin')) {
             global $oer_texts;
 
 		    $oer_config = get_option('oer_config');
+            $oer_config = is_array($oer_config) ? $oer_config : ['use_translation' => true];
             $oer_config['use_translation'] = true;
+            //$oer_config['use_translation'] = true;
 
-		    if ( $oer_config && $oer_config['plugin_slug'] != ''){
+            if (is_array($oer_config) && !empty($oer_config['plugin_slug'])) {
 		        $this->plugin_slug = $oer_config['plugin_slug'];
 		    }
             if ($oer_config['use_translation']){
@@ -275,9 +277,7 @@ if(!class_exists('OER_Plugin')) {
 		    $plugin_config = get_option('oer_config');
 
 		    // check if is defined GA code and pagename starts with plugin slug
-		    if ($plugin_config['google_analytics_code'] != ''
-		        && strpos($pagename, $this->plugin_slug) === 0){
-
+            if (!empty($plugin_config['google_analytics_code']) && isset($pagename) && strpos($pagename, $this->plugin_slug) === 0){
 		?>
 
 		<script type="text/javascript">

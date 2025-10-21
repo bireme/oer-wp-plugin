@@ -6,19 +6,21 @@ class Paginator{
     var $output;
     var $pag = array();
     var $current_page;
+    var $count;
 
-    function Paginator($total, $start, $count=10)
-    {
-        $this->total = $total;
-        $this->start = $start;
-        $this->count = $count;
-        $this->current_page = ( !empty($_GET['page']) ? $_GET['page'] : 1);
-    }
+function __construct($total, $start, $count=10)
+{
+    $this->total = $total;
+    $this->start = $start;
+    $this->count = $count;
+    $this->current_page = (!empty($_GET['page']) ? $_GET['page'] : 1);
+}
 
     function paginate($page_url_params){
         $pag['total'] = $this->total;
-        $pag['total_formatted'] = number_format($pag['total'], 0, ',', '.');
+        $pag['total_formatted'] = number_format($pag['total'] ?? 0, 0, ',', '.');
         $pag['start'] = $this->start;
+        //$pag['total_pages'] = ($this->count > 0) ? (((($pag['total'] / $this->count) % 10) == 0) ? (int)($pag['total'] / $this->count) : (int)(($pag['total'] / $this->count) + 1)) : 1;
         $pag['total_pages'] = (($pag['total']/$this->count) % 10 == 0) ? (int)($pag['total']/$this->count) : (int)($pag['total']/$this->count+1);
         $pag['count'] = $this->count;
 
@@ -54,7 +56,7 @@ class Paginator{
                     if ($for_page != 1){
                         $this->output .= '<li><a href="' . $page_url_params . '&page=' . $for_page . '" title="' . __('go to page','lis') . ' ' . $for_page . '">' .$for_page . '</a></li>';
                     }else{
-                        $this->output .= '<li> class="active"><a href="#">' . $for_page .'</a></li>';
+                        $this->output .= '<li class="active"><a href="#">' . $for_page .'</a></li>';
                     }
                 }
             }

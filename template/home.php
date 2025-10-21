@@ -7,16 +7,16 @@ global $oer_service_url, $oer_plugin_slug, $oer_texts;
 require_once(OER_PLUGIN_PATH . '/lib/Paginator.php');
 
 $oer_config = get_option('oer_config');
-$oer_initial_filter = $oer_config['initial_filter'];
-$count_page = intval($oer_config['count_page']);
-$count_filter = intval($oer_config['count_filter']);
+$oer_initial_filter = (is_array($oer_config) && isset($oer_config['initial_filter'])) ? $oer_config['initial_filter'] : '';
+$count_page = (is_array($oer_config) && isset($oer_config['count_page'])) ? intval($oer_config['count_page']) : 0;
+$count_filter = (is_array($oer_config) && isset($oer_config['count_filter'])) ? intval($oer_config['count_filter']) : 0;
 
 $site_language = strtolower(get_bloginfo('language'));
 $lang = substr($site_language,0,2);
 
-$query = ( isset($_GET['s']) ? sanitize_text_field($_GET['s']) : sanitize_text_field($_GET['q']) );
+$query = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : (isset($_GET['q']) ? sanitize_text_field($_GET['q']) : '');
 $query = stripslashes($query);
-$sanitize_user_filter = sanitize_text_field($_GET['filter']);
+$sanitize_user_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
 $user_filter = stripslashes($sanitize_user_filter);
 $page = ( isset($_GET['page']) ? sanitize_text_field($_GET['page']) : 1 );
 $total = 0;
@@ -156,7 +156,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                         </div>
 
                         <div id="filters">
-                            <?php if ($applied_filter_list) :?>
+                        <?php if (isset($applied_filter_list) && !empty($applied_filter_list)) : ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid marginbottom15">
                                         <h1 class="h1-header"><?php echo _e('Selected filters', 'oer') ?></h1>

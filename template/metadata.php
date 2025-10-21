@@ -160,7 +160,7 @@ $detail_page = (isset($resource_id) ? true: false);
   </div>
 <?php endif; ?>
 
-<?php if ($resource->relationship_passive): ?>
+<?php if (isset($resource) && !empty($resource->relationship_passive)): ?>
   <div class="destak">
     <h2><?php _e('Related', 'oer'); ?></h2>
     <?php foreach ( $resource->relationship_passive as $rel) { ?>

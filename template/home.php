@@ -202,11 +202,10 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                               $order = explode(';', $oer_config['available_filter']);
                               foreach($order as $index=>$content) {
                             ?>
-
                             <?php if ( $content == 'Descriptor' ): ?>
                 			    <section class="row-fluid marginbottom25 widget_categories">
                 					<header class="row-fluid border-bottom marginbottom15">
-                						<h1 class="h1-header"><?php echo translate_label($oer_texts, 'descriptor', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Descriptor', 'oer') ?></h1>                                        
                 					</header>
                 					<ul>
                                         <?php foreach ( $descriptor_list as $descriptor) { ?>
@@ -232,7 +231,8 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ($content == 'Type' ): ?>
                                 <section class="row-fluid marginbottom25 widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'type', 'filter') ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Type','oer') ?></h1>
+                                        
                                     </header>
                                     <ul>
                                         <?php foreach ( $type_list as $type) { ?>
@@ -258,7 +258,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Language' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'language', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Language','oer'); ?></h1>                                        
                                     </header>
                                     <ul>
                                         <?php foreach ( $language_list as $lang ) { ?>
@@ -284,7 +284,8 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Course type' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'course_type', 'filter'); ?></h1>
+                                        <!--<h1 class="h1-header"><?php echo translate_label($oer_texts, 'course_type', 'filter'); ?></h1>-->
+                                        <h1 class="h1-header"><?php echo __('Course type', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $course_type_list as $item ) { ?>
@@ -310,7 +311,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Technical resource type' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'tec_resource_type', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Technical resource type', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $tec_resource_type_list as $item ) { ?>
@@ -336,7 +337,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Format' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'format', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Format', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $format_list as $item ) { ?>
@@ -362,7 +363,8 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Learning resource type' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'learning_resource_type', 'filter'); ?></h1>
+                                        <!--<h1 class="h1-header"><?php echo translate_label($oer_texts, 'learning_resource_type', 'filter'); ?></h1>-->
+                                        <h1 class="h1-header"><?php echo __('Learning resource type', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $learning_resource_type_list as $item ) { ?>
@@ -388,7 +390,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Learning context' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'learning_context', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Learning context', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $learning_context_list as $item ) { ?>
@@ -414,7 +416,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Aggregation level' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'aggregation_level', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Aggregation level', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $aggregation_level_list as $item ) { ?>
@@ -440,7 +442,7 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'Audience' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'audience', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Audience', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $audience_list as $item ) { ?>
@@ -466,7 +468,8 @@ $plugin_breadcrumb = isset($oer_config['plugin_title_' . $lang]) ? $oer_config['
                             <?php if ( $content == 'License' ): ?>
                                 <section class="row-fluid widget_categories">
                                     <header class="row-fluid border-bottom marginbottom15">
-                                        <h1 class="h1-header"><?php echo translate_label($oer_texts, 'license', 'filter'); ?></h1>
+                                        <h1 class="h1-header"><?php echo __('License', 'oer') ?></h1>
+                                        <h1 class="h1-header"><?php echo __('Technical resource type', 'oer') ?></h1>
                                     </header>
                                     <ul>
                                         <?php foreach ( $license_list as $item ) { ?>

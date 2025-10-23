@@ -274,7 +274,7 @@ input[type=radio]{float:left; margin:3px 5px 0 0;}
 	.header-colabore{display:none;}
 	#conteudo{width:95%; margin:0 2.5%;}
 	.breadcrumb {margin-left: 8px;}
-	.conteudo-loop{width:94%;}
+	.conteudo-loop{width:94%; z-index: 5000;position: relative;}
 	.conteudo-loop-icons{max-height:100% !important;}
 	.conteudo-loop-icons-li{width:50%; float:left; margin:0; position:relative; line-height:26px;}
 	.conteudo-loop-icons-li:first-child{margin:0px !important;}
